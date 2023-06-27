@@ -3,12 +3,11 @@
         <div class="col-lg-6 offset-lg-3">
             <div class="card">
                 <div class="card-body text-center">
-                    <h1>Los mejores streamers de la web</h1>
-                    <span class="titulo">Subir streamers</span>
+                    <span class="titulo">Subir Manga</span>
                     <form class="mt-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
-                        <label class="form-label"><i class="fa-solid fa-newspaper"></i>Captura el producto</label>
+                        <label class="form-label"><i class="fa-solid fa-newspaper"></i>Captura tu manga</label>
                         <div class="mb-3">
-                            <input type="text" formControlName="producto" class="form-control form-control-lg" placeholder="Producto">
+                            <input type="text" formControlName="producto" class="form-control form-control-lg" placeholder="Nombre">
                             <div class="text-danger" *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched">
                                 <span>El nombre del producto<strong> es obligatorio</strong></span>
                             </div>
@@ -20,7 +19,13 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" formControlName="ubicacion" class="form-control form-control-lg" placeholder="Ubicación">
+                            <input type="text" formControlName="descripcion" class="form-control form-control-lg" placeholder="Descripción">
+                            <div class="text-danger" *ngIf="productoForm.get('descripcion')?.hasError('required') && productoForm.get('descripcion')?.touched">
+                                <span>La descripcion<strong>es obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="ubicacion" class="form-control form-control-lg" placeholder="Enlace">
                             <div class="text-danger" *ngIf="productoForm.get('ubicacion')?.hasError('required') && productoForm.get('ubicacion')?.touched">
                                 <span>La ubicacion es <strong>obligatoria</strong></span>
                             </div>
@@ -29,6 +34,12 @@
                             <input type="text" formControlName="precio" class="form-control form-control-lg" placeholder="Precio">
                             <div class="text-danger" *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">
                                 <span>El precio es <strong>requerido</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="file" (change)="onFileSelected($event)" accept="image/*" class="form-control form-control-lg" formControlName="imagen">
+                            <div class="text-danger" *ngIf="productoForm.get('imagen')?.hasError('required') && productoForm.get('imagen')?.touched">
+                                <span>La imagen es <strong>requerida</strong></span>
                             </div>
                         </div>
                         <button routerLink="/" class="btn btn-secondary btn-lg float-start">Volver</button>

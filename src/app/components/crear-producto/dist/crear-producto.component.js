@@ -21,20 +21,24 @@ var CrearProductoComponent = /** @class */ (function () {
             producto: ['', forms_1.Validators.required],
             categoria: ['', forms_1.Validators.required],
             ubicacion: ['', forms_1.Validators.required],
-            precio: ['', forms_1.Validators.required]
+            precio: ['', forms_1.Validators.required],
+            descripcion: ['', forms_1.Validators.required],
+            imagen: ['', forms_1.Validators.required]
         });
         this.id = this.aRouter.snapshot.paramMap.get('id');
     }
     CrearProductoComponent.prototype.agregarProducto = function () {
         var _this = this;
-        var _a, _b, _c, _d, _e;
+        var _a, _b, _c, _d, _e, _f, _g;
         console.log(this.productoForm);
         console.log((_a = this.productoForm.get('producto')) === null || _a === void 0 ? void 0 : _a.value);
         var PRODUCTO = {
             nombre: (_b = this.productoForm.get('producto')) === null || _b === void 0 ? void 0 : _b.value,
             categoria: (_c = this.productoForm.get('categoria')) === null || _c === void 0 ? void 0 : _c.value,
             ubicacion: (_d = this.productoForm.get('ubicacion')) === null || _d === void 0 ? void 0 : _d.value,
-            precio: (_e = this.productoForm.get('precio')) === null || _e === void 0 ? void 0 : _e.value
+            precio: (_e = this.productoForm.get('precio')) === null || _e === void 0 ? void 0 : _e.value,
+            imagen: (_f = this.productoForm.get('imagen')) === null || _f === void 0 ? void 0 : _f.value,
+            descripcion: (_g = this.productoForm.get('descripcion')) === null || _g === void 0 ? void 0 : _g.value
         };
         if (this.id !== null) {
             //editamos producto 
@@ -67,9 +71,23 @@ var CrearProductoComponent = /** @class */ (function () {
                     producto: data.nombre,
                     categoria: data.categoria,
                     ubicacion: data.ubicacion,
-                    precio: data.precio
+                    precio: data.precio,
+                    imagen: data.imagen
                 });
             });
+        }
+    };
+    CrearProductoComponent.prototype.onFileSelected = function (event) {
+        var _this = this;
+        var file = event.target.files[0];
+        if (file) {
+            var reader_1 = new FileReader();
+            reader_1.readAsDataURL(file);
+            reader_1.onload = function () {
+                _this.productoForm.patchValue({
+                    imagen: reader_1.result
+                });
+            };
         }
     };
     CrearProductoComponent.prototype.ngOnInit = function () {

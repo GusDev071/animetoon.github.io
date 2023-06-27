@@ -11,6 +11,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import {HttpClientModule} from '@angular/common/http';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
     CrearProductoComponent,
     ListarProductosComponent,
     NavbarComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

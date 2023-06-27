@@ -1,30 +1,32 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-12 offset-lg-0">
             <div class="card">
-                <div class="card-body text-center">
-                    <span class="titulo">LISTADO DE PRODUCTOS</span>
-                    <div class="btn btn-success float-end" routerLink="/crear-producto">NUEVO</div>
-                    <table *ngIf="listProductos.length>0" class="table table-striped mt-3">
-                        <thead>
-                            <tr>
-                                <th scope="col">Producto</th>
-                                <th scope="col">Categoria</th>
-                                <th scope="col">Ubicacion</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let producto of listProductos">
-                                <th>{{producto.nombre}}</th>
-                                <td>{{producto.categoria}}</td>
-                                <td>{{producto.ubicacion}}</td>
-                                <td>{{producto.precio | currency: 'USD'}}</td>
-                                <td>
-                                    <i [routerLink]="['/editar-producto',producto._id]" class="fa-solid fa-pen-to-square text-danger"></i><i (click)="eliminarProducto(producto._id)" class="fa-solid fa-trash text-primary"></i>
-                        </tbody>
-                    </table>
+                <div class="card-header">
+                    <span class="titulo" style="text-align: center;">LISTADO DE MANGAS</span>
+                    <div class="btn btn-outline-success float-end" routerLink="/crear-producto">NUEVO</div>
+                </div>
+                <div class="card-body" id="uno">
+                    <div class="row">
+                        <div class="col-md-4 mb-3" *ngFor="let producto of listProductos">
+                            <div class="card">
+                                <div class="card-body" id="dos">
+                                    <h5 class="card-title" style="text-align: center;"><b>{{producto.nombre}}</b></h5>
+                                    <a [href]="producto.ubicacion"><img [src]="producto.imagen" class="card-img-top" alt="..." style="width: 50%; margin-left: 80px;"></a>
+                                    <p class="card-text"><b>Categoria: </b>{{producto.categoria}}</p>
+                                    <p class="card-text"><b>Descripción:</b>{{producto.descripcion}}</p>
+                                    <b>Ver aquí: </b><a [href]="producto.ubicacion">Enlace directo</a>
+                                    <p class="card-text"> <b>Precio por leer: </b>{{producto.precio | currency: 'USD'}}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a [routerLink]="['/editar-producto',producto._id]" class="btn btn-sm btn-outline-success">Editar</a>
+                                            <button (click)="eliminarProducto(producto._id)" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <h5 style="text-align: start; margin-top: 10px;" *ngIf="listProductos.length==0">No hay productos para mostar</h5>
                 </div>
             </div>

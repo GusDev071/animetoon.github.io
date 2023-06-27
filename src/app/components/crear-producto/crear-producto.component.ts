@@ -31,6 +31,8 @@ private aRouter:ActivatedRoute){
     categoria:['',Validators.required], 
     ubicacion:['',Validators.required], 
     precio:['',Validators.required], 
+    descripcion:['',Validators.required],
+    imagen:['',Validators.required],
   }); 
   this.id=this.aRouter.snapshot.paramMap.get('id'); 
 
@@ -48,6 +50,8 @@ nombre:this.productoForm.get('producto')?.value,
 categoria:this.productoForm.get('categoria')?.value, 
 ubicacion:this.productoForm.get('ubicacion')?.value, 
 precio:this.productoForm.get('precio')?.value, 
+imagen:this.productoForm.get('imagen')?.value,
+descripcion:this.productoForm.get('descripcion')?.value,
 
 } 
 
@@ -88,14 +92,26 @@ if(this.id !== null){
         categoria:data.categoria, 
         ubicacion:data.ubicacion, 
         precio:data.precio, 
-
+        imagen:data.imagen,
     }) 
   }) 
  } 
 
 } 
 
- 
+onFileSelected(event: any) {
+  const file: File = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.productoForm.patchValue({
+        imagen: reader.result
+      });
+    };
+  }
+}
+
 
 ngOnInit(): void { 
 this.esEditar(); 

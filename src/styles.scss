@@ -1,15 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-
-body{
-    background: #A770EF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+body {
+    background: rgb(63, 94, 251);
+    background: linear-gradient(90deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
 }
 
 .titulo {
     font-size: 1.8rem;
     font-family: 'Kanit', sans-serif;
     font-weight: bold;
-
 }

@@ -29,6 +29,9 @@ console.log(error);
 } 
 
 
+
+
+
 eliminarProducto(id:any){ 
     this._productoService.eliminarProducto(id).subscribe(data=>{ 
     this.toastr.error('producto eliminado con exito',id); 
@@ -39,4 +42,6 @@ eliminarProducto(id:any){
     
     } 
 
-} 
+
+}
+

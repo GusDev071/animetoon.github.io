@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background: #3f5efb;
+  background: linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
+}
+
+.titulo {
+  font-size: 1.8rem;
+  font-family: "Kanit", sans-serif;
+  font-weight: bold;
+}
