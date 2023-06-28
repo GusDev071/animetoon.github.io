@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+
 .text-danger {
     text-align: start;
     margin-left: 7px;
     font-size: 10px;
+}
+
+.titulo{
+    font-family: 'Bagel Fat One', cursive;
+}
+
+
+.card {
+    .card-body {
+        background-color: #f5f5;
+        border-radius: 10px;
+        border: 2px solid #fdfd96;
+    }
 }
 

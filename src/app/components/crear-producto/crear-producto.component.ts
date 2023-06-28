@@ -60,7 +60,7 @@ if(this.id !==null){
 //editamos producto 
 
 this._productoServices.editarProducto(this.id,PRODUCTO).subscribe(data=>{ 
-  this.toastr.success(PRODUCTO.nombre, 'Producto fue Actualizado con éxito'); 
+  this.toastr.success(PRODUCTO.nombre, 'Manga fue Actualizado con éxito'); 
   this.router.navigate(['/']); 
 
 },error=>{ 
@@ -72,7 +72,7 @@ this._productoServices.editarProducto(this.id,PRODUCTO).subscribe(data=>{
 //agregamos producto 
 console.log(PRODUCTO); 
 this._productoServices.registarProducto(PRODUCTO).subscribe(data=>{ 
-this.toastr.success(PRODUCTO.nombre, 'Producto Registrado'); 
+this.toastr.success(PRODUCTO.nombre, 'Manga Registrado'); 
 this.router.navigate(['/']); 
 
 },error=>{ 

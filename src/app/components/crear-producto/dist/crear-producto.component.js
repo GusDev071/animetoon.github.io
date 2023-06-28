@@ -43,7 +43,7 @@ var CrearProductoComponent = /** @class */ (function () {
         if (this.id !== null) {
             //editamos producto 
             this._productoServices.editarProducto(this.id, PRODUCTO).subscribe(function (data) {
-                _this.toastr.success(PRODUCTO.nombre, 'Producto fue Actualizado con éxito');
+                _this.toastr.success(PRODUCTO.nombre, 'Manga fue Actualizado con éxito');
                 _this.router.navigate(['/']);
             }, function (error) {
                 console.log(error);
@@ -54,7 +54,7 @@ var CrearProductoComponent = /** @class */ (function () {
             //agregamos producto 
             console.log(PRODUCTO);
             this._productoServices.registarProducto(PRODUCTO).subscribe(function (data) {
-                _this.toastr.success(PRODUCTO.nombre, 'Producto Registrado');
+                _this.toastr.success(PRODUCTO.nombre, 'Manga Registrado');
                 _this.router.navigate(['/']);
             }, function (error) {
                 console.log(error);
